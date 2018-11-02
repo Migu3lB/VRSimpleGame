@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VR Game - Miguel Bermeo</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/98/three.min.js"></script>
+</head>
+<body>
+	<a-scene id="scene">
+
+	<a-assets>
+		<img id="background1" src="assets/Aldea.jpg">
+		<img id="background2" src="assets/patos.png">	
+	</a-assets>
+
+    <a-plane id="suelo" width="16" height="16"
+             material="shader:flat; color:rgb(34,139,34)"
+             rotation="-90 0 0"
+             position="0 0 0">
+    </a-plane>
+
+    <a-camera wasd-controls="enabled:false" id="jugador">
+        <a-cylinder id="arma" material="shader:flat;color:rgb(119,1,1);flatShading:true"
+                    geometry="primitive:cylinder;radius:0.05;segmentsRadial:6;segmentsHeight:1;height:0.8"
+                    position="0 -0.3 -1"
+                    rotation="90 0 0">
+            <a-entity raycaster="interval: 10; objects: .interactive" scale="1 1 -1" rotation="90 0 0"></a-entity>
+            <a-box geometry="width:0.08;height:0.1;depth:0.3" 
+			material="shader:flat;color:rgb(7,0,0);flatShading:true"
+            position="0 0.25 0.13" rotation="-30 0 0"></a-box>
+        </a-cylinder>
+    </a-camera>
+
+    <a-cylinder id="backgroundPrincipal" width="16" height="8"
+                material-overdraw="overdraw:0.8"
+                material="shader:flat;side:double;transparent:true;src:#background2;depthTest:true;repeat:2 1;width:514.72;height:254.18;fog:false;roughness:1;flatShading:false;color:#664040;opacity:1"
+                position="0 4 0" scale="1 1 1"
+                geometry="primitive:cylinder;height:8;radius:8;segmentsRadial:8;segmentsHeight:1;openEnded:true">
+    </a-cylinder>
+
+    <a-sky id="sky" material="color:rgb(72,161,241)"></a-sky>
+
+	</a-scene>
+</body>
+</html>
