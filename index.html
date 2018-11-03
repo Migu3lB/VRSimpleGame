@@ -13,6 +13,17 @@
 		<img id="background2" src="assets/Patos.png">	
 	</a-assets>
 
+    <a-sphere id="mira" radius="24"
+              class="interactive"
+              material="opacity:0.6;side:back; visible:true">
+    </a-sphere>
+
+    <a-sphere radius="0.2" material="color:#ff0000" id="hitArea">
+        <a-plane id="hitBox" width="1" height="1"
+                 material="shader:flat; visible:false">
+        </a-plane>
+    </a-sphere>
+
     <a-plane id="suelo" width="16" height="16"
              material="shader:flat; color:rgb(34,139,34)"
              rotation="-90 0 0"
